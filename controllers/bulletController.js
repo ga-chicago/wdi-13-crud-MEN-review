@@ -4,6 +4,13 @@ const express = require('express');
 const router = express.Router();
 
 // index
+router.get('/', (req, res) => {
+    Bullet.find({}, (err, foundBullets) => {
+        res.render('index.ejs', {
+            foundBullets: foundBullets
+        })
+    })
+})
 
 
 // new
@@ -24,7 +31,7 @@ router.post('/', (req, res) => {
     }
     Bullet.create(thingToAddToDB, (err, createdBullet) => {
         if(err) console.log(err);
-        res.send(createdBullet);
+        res.redirect('/bullets');
     })
 })
 
