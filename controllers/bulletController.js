@@ -3,10 +3,22 @@ const Bullet = require('../models/bullet.js')
 const express = require('express');
 const router = express.Router();
 
+// index
 
-
-router.get('/', (req, res) => {
-    res.send("you have a working bullet controller")
+// new
+router.get('/new', (req, res) => {
+    res.render('new.ejs');
 })
+
+// create
+
+// show
+
+// edit
+
+// update
+
+// destroy
+
 
 module.exports = router;
