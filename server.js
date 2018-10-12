@@ -4,9 +4,9 @@ const app = express();
 // connect to db -- run the code in this file
 require('./db/db');
 
-// included here just to test -- will be moved to controller ASAP
-const Bullet = require('./models/bullet.js')
-
+// CONTROLLERS
+const bulletController = require('./controllers/bulletController')
+app.use('/bullets', bulletController)
 
 app.get('/', (req, res) => {
     res.send("welcome to the app!")
