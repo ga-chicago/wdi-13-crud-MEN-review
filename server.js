@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 // connect to db -- run the code in this file
 require('./db/db');
@@ -11,7 +12,7 @@ app.use((req, res, next) => {
     next();
 })
 app.use(bodyParser.urlencoded({extended: false}));
-
+app.use(methodOverride('_method'));
 
 
 // CONTROLLERS

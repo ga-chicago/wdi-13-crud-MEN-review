@@ -42,6 +42,12 @@ router.post('/', (req, res) => {
 // update
 
 // destroy
+router.delete('/:id', (req, res) => {
+    Bullet.findByIdAndRemove(req.params.id, (err, deletedBullet) => {
+        if(err) console.log(err);
 
+        res.redirect('/bullets')      
+    })
+})
 
 module.exports = router;

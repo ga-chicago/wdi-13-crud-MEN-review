@@ -7,7 +7,12 @@
     Index of Tasks
     <ul>
         <% foundBullets.forEach((bullet) => { %>
-            <li><%=bullet.task%></li>
+            <li>
+                <form method="POST" action="/bullets/<%= bullet.id %>?_method=DELETE">
+                    <%=bullet.task%> <button>DELETE</button>
+                </form>
+                    
+            </li>
         <% }) %>
     </ul>
 
