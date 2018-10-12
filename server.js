@@ -1,8 +1,18 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
 
 // connect to db -- run the code in this file
 require('./db/db');
+
+// MIDDLEWARE -- intercept all requests and do something to them
+app.use((req, res, next) => {
+    console.log("Hi i am middleware and every route comes through me");
+    next();
+})
+app.use(bodyParser.urlencoded({extended: false}));
+
+
 
 // CONTROLLERS
 const bulletController = require('./controllers/bulletController')
